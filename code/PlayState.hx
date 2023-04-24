@@ -1564,23 +1564,11 @@ class PlayState extends MusicBeatState {
 
 	function hideHUD(appear:Bool) {
 		if (appear) {
-			FlxTween.tween(timeTxt, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(timeBar, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(timeBarBG, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(scoreTxt, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(healthBarBG, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(healthBar, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(iconP1, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(iconP2, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
+			for (hudstuff in [timeTxt, timeBar, timeBarBG, scoreTxt, healthBarBG, healthBar, iconP1, iconP2])
+				FlxTween.tween(hudstuff, {alpha: 0}, 0.6, {ease: FlxEase.sineOut});
 		} else {
-			FlxTween.tween(timeTxt, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(timeBar, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(timeBarBG, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(scoreTxt, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(healthBarBG, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(healthBar, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(iconP1, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
-			FlxTween.tween(iconP2, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
+			for (hudstuff in [timeTxt, timeBar, timeBarBG, scoreTxt, healthBarBG, healthBar, iconP1, iconP2])
+				FlxTween.tween(hudstuff, {alpha: 1}, 0.6, {ease: FlxEase.sineOut});
 		}
 	}
 
