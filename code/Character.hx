@@ -185,6 +185,23 @@ class Character extends FlxSprite {
 				playAnim('idle');
 				
 				barColor = 0xFFe455d8;
+			case 'blueImpostor':
+				frames = Paths.getSparrowAtlas('characters/new_amongus', 'shared');
+				animation.addByPrefix('idle', 'idle', 24, false);
+				animation.addByPrefix('singUP', 'up', 24, false);
+				animation.addByPrefix('singLEFT', 'right', 24, false);
+				animation.addByPrefix('singRIGHT', 'left', 24, false);
+				animation.addByPrefix('singDOWN', 'down', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -46, 67);
+				addOffset("singRIGHT", -48, 30);
+				addOffset("singLEFT", 45, 30);
+				addOffset("singDOWN", 0, -71);
+
+				playAnim('idle');
+				
+				barColor = 0xFFe455d8;
 		}
 
 		dance();

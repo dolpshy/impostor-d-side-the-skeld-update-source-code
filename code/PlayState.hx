@@ -175,7 +175,8 @@ class PlayState extends MusicBeatState {
 
 	var admin:FlxSprite;
 	var background:FlxSprite;
-
+	var administration:FlxSprite;
+	
 	public static var campaignScore:Int = 0;
 
 	var defaultCamZoom:Float = 1.05;
@@ -298,6 +299,14 @@ class PlayState extends MusicBeatState {
 				admin.scrollFactor.set(1, 1);
 				admin.setGraphicSize(Std.int(admin.width * 1.8));
 				add(admin);
+			case 'administration':
+				defaultCamZoom = 0.8;
+
+				administration = new FlxSprite(-500, -200).loadGraphic(Paths.image('bgs/' + curStage + '/' + curStage, 'shared'));
+				administration.antialiasing = true;
+				administration.scrollFactor.set(1, 1);
+				administration.setGraphicSize(Std.int(administration.width * 1.8));
+				add(administration);
 		}
 
 		var gfVersion:String = 'gf';
@@ -309,7 +318,6 @@ class PlayState extends MusicBeatState {
 
 		gf = new Character(500, -100, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
-		gf.alpha = 0.000001;
 
 		dad = new Character(100, 100, SONG.player2);
 
@@ -338,11 +346,14 @@ class PlayState extends MusicBeatState {
 				boyfriend.y = -140;
 				dad.x = -700;
 				dad.y = -300;
-				gf.x = dad.x + 300;
-				gf.y = dad.y + 100;
+			case 'administration':
+				boyfriend.x = 180;
+				boyfriend.y = -100;
+				dad.x = -900;
+				dad.y = -200;
 		}
 
-		add(gf);
+		//add(gf);
 		add(dad);
 		add(boyfriend);
 
