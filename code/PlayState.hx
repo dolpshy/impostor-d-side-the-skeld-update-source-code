@@ -241,6 +241,8 @@ class PlayState extends MusicBeatState {
 			largeImageRPC = 'sd1';
 		else if (SONG.song.toLowerCase() == 'sussy-dilemma-two')
 			largeImageRPC = 'sd2';
+		else if (SONG.song.toLowerCase() == 'sussy-dilemma-three')
+			largeImageRPC = 'sd3';
 		else
 			largeImageRPC = 'icon';
 
