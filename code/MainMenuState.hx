@@ -163,7 +163,7 @@ class MainMenuState extends MusicBeatState {
 		switch (daChoice) {
 			case 'play':
 				// yeah man
-				PlayState.storyPlaylist = ['sussy-dilemma', 'sussy-dilemma-two'];
+				PlayState.storyPlaylist = ['sussy-dilemma', 'sussy-dilemma-two', 'sussy-dilemma-three'];
 				PlayState.isStoryMode = true;
 				PlayState.storyDifficulty = 0;
 				PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0], PlayState.storyPlaylist[0]);

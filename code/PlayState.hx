@@ -351,8 +351,8 @@ class PlayState extends MusicBeatState {
 			case 'administration':
 				boyfriend.x = 180;
 				boyfriend.y = -100;
-				dad.x = -900;
-				dad.y = -200;
+				dad.x = -500;
+				dad.y = 320;
 		}
 
 		//add(gf);
@@ -360,7 +360,6 @@ class PlayState extends MusicBeatState {
 		add(boyfriend);
 
 		// IM PRELOADING THIS
-		// -shyllis the HARDCODE addict
 		if (curSong.toLowerCase() == 'sussy-dilemma-two')
 			FlxG.bitmap.add(Paths.image('characters/chicken', 'shared'));
 
@@ -1309,6 +1308,9 @@ class PlayState extends MusicBeatState {
 					case 'jisie':
 						offsetX = 400;
 						offsetY = 200;
+					case 'blueImpostor':
+						offsetX = 200;
+						offsetY = -100;
 				}
 
 				camFollow.setPosition(dad.getMidpoint().x + offsetX, dad.getMidpoint().y + offsetY);

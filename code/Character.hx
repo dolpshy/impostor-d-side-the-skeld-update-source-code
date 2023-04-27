@@ -189,19 +189,23 @@ class Character extends FlxSprite {
 				frames = Paths.getSparrowAtlas('characters/new_amongus', 'shared');
 				animation.addByPrefix('idle', 'idle', 24, false);
 				animation.addByPrefix('singUP', 'up', 24, false);
-				animation.addByPrefix('singLEFT', 'right', 24, false);
-				animation.addByPrefix('singRIGHT', 'left', 24, false);
+				animation.addByPrefix('singLEFT', 'left', 24, false);
+				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
+				animation.addByPrefix('shoot', 'shoot', 24, false);
+
+				setGraphicSize(Std.int(width * 1.3));
 
 				addOffset('idle', -5);
-				addOffset("singUP", -46, 67);
-				addOffset("singRIGHT", -48, 30);
-				addOffset("singLEFT", 45, 30);
-				addOffset("singDOWN", 0, -71);
+				addOffset("singUP", -28, 19);
+				addOffset("singRIGHT", -17, -3);
+				addOffset("singLEFT", 117, -17);
+				addOffset("singDOWN", -11, -17);
+				addOffset('shoot', -19, -10);
 
 				playAnim('idle');
 				
-				barColor = 0xFFe455d8;
+				barColor = 0xFF1d1678;
 		}
 
 		dance();
