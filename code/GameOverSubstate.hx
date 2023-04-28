@@ -21,7 +21,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		switch (PlayState.SONG.player1)
 		{
 			default:
-				daBf = 'bf';
+				daBf = 'bfdside';
 		}
 
 		super();
@@ -29,7 +29,6 @@ class GameOverSubstate extends MusicBeatSubstate
 		Conductor.songPosition = 0;
 
 		bf = new Boyfriend(x, y, daBf);
-		bf.alpha = 0;
 		add(bf);
 
 		camFollow = new FlxObject(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y, 1, 1);

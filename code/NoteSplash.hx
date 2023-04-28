@@ -5,14 +5,10 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class NoteSplash extends FlxSprite {
-	private var idleAnim:String;
-
 	public function new(x:Float = 0, y:Float = 0, ?note:Int = 0) {
 		super(x, y);
 
-		var skin:String = 'noteSplashes';
-
-		loadAnims(skin);
+		loadAnims('noteSplashes');
 
 		setupNoteSplash(x, y, note);
 		antialiasing = true;

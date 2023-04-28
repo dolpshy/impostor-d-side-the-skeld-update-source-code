@@ -194,7 +194,7 @@ class Character extends FlxSprite {
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('shoot', 'shoot', 24, false);
 
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 1.5));
 
 				addOffset('idle', -5);
 				addOffset("singUP", -28, 19);
