@@ -1689,7 +1689,7 @@ class PlayState extends MusicBeatState {
 				storyPlaylist.remove(storyPlaylist[0]);
 
 				switch (curSong.toLowerCase()) {
-					case 'sussy-dilemma-two':
+					case 'sussy-dilemma-three':
 						playVideo('date.mp4', true);
 					default:
 						if (storyPlaylist.length <= 0) {
