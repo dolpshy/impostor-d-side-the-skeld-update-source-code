@@ -1327,7 +1327,7 @@ class PlayState extends MusicBeatState {
 						offsetY = 200;
 					case 'jisie':
 						offsetX = 400;
-						offsetY = 200;
+						offsetY = 300;
 					case 'blueImpostor':
 						offsetX = 200;
 						offsetY = -100;
@@ -1973,7 +1973,7 @@ class PlayState extends MusicBeatState {
 				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image('num' + Std.int(i)));
 				numScore.screenCenter();
 				numScore.x = rating.x + (43 * daLoop) - 50;
-				numScore.y = rating.y + 100;
+				numScore.y = rating.y + 200;
 				numScore.cameras = [camHUD];
 				numScore.antialiasing = true;
 				numScore.setGraphicSize(Std.int(numScore.width * 0.5));
@@ -2435,12 +2435,16 @@ class PlayState extends MusicBeatState {
 
 		songLength = FlxG.sound.music.length;
 
+		//you made events in code????? smh just use psych silly
+
 		if (curSong.toLowerCase() == 'sussy-dilemma') {
 			if (curStep == 1024) {
 				dad.alpha = 0;
 				background.alpha = 0;
 				FlxTween.tween(camHUD, {alpha: 0}, 1, {ease: FlxEase.quartInOut});
-			} else if (curStep == 1048)
+			} 
+			
+			if (curStep == 1048)
 				FlxTween.tween(boyfriend, {alpha: 0}, 3, {ease: FlxEase.quartInOut});
 		}
 
@@ -2450,19 +2454,84 @@ class PlayState extends MusicBeatState {
 					changeBF('chicken');
 					boyfriend.x = 300;
 					boyfriend.y = 0;
+					defaultCamZoom = 1;
 				case 1280:
 					changeBF('bfdside');
 					boyfriend.x = 180;
 					boyfriend.y = -100;
+					defaultCamZoom = 0.8;
 				case 1408:
 					defaultCamZoom = 1.05;
 					FlxTween.tween(boyfriend, {alpha: 0.8}, 1, {ease: FlxEase.quartInOut});
 					FlxTween.tween(dad, {alpha: 0}, 1, {ease: FlxEase.quartInOut});
 					FlxTween.tween(admin, {alpha: 0.2}, 1, {ease: FlxEase.quartInOut});
-					FlxTween.tween(camHUD, {alpha: 0.8}, 1, {ease: FlxEase.quartInOut});
 					cinematicBars(true);
 					middleScrollSwitch(true);
 					hideHUD(true);
+				case 1440 | 1504 | 1568:
+					defaultCamZoom = 0.95;
+					FlxTween.tween(boyfriend, {alpha: 0.2}, 1, {ease: FlxEase.quartInOut});
+				case 1472 | 1536 | 1600:
+					defaultCamZoom = 1.05;
+					FlxTween.tween(boyfriend, {alpha: 0.8}, 1, {ease: FlxEase.quartInOut});
+				case 1568:
+					FlxTween.tween(FlxG.camera, {zoom: 0.75}, 3.2, {ease: FlxEase.quartInOut});
+					FlxTween.tween(boyfriend, {alpha: 0.4}, 3.2, {ease: FlxEase.quartInOut});
+				case 1808:
+					boyfriend.alpha = 0;
+					admin.alpha = 0;
+					camHUD.alpha = 0;
+			}
+		}
+		
+		if (curSong.toLowerCase() == 'sussy-dilemma-three') {
+			switch(curStep) {
+				case 256:
+					defaultCamZoom = 0.9;
+				case 512:
+					defaultCamZoom = 0.8;
+				case 640:
+					cinematicBars(true);
+				case 768:
+					defaultCamZoom = 1;
+					FlxTween.tween(administration, {alpha: 0.8}, 1, {ease: FlxEase.quartInOut});
+				case 833:
+					FlxTween.tween(administration, {alpha: 0.4}, 4, {ease: FlxEase.quartInOut});
+				case 896:
+					defaultCamZoom = 0.8;
+					cinematicBars(false);
+					FlxTween.tween(administration, {alpha: 1}, 0.5, {ease: FlxEase.quartInOut});
+				case 1026:
+					defaultCamZoom = 1;
+					administration.alpha = 0;
+				case 1048:
+					FlxTween.tween(administration, {alpha: 0.8}, 0.8, {ease: FlxEase.quartInOut});
+				case 1088:
+					defaultCamZoom = 1.1;
+					FlxTween.tween(dad, {alpha: 0}, 1, {ease: FlxEase.quartInOut});
+					FlxTween.tween(administration, {alpha: 0}, 0.6, {ease: FlxEase.quartInOut});
+				case 1112:
+					FlxTween.tween(administration, {alpha: 0.4}, 0.8, {ease: FlxEase.quartInOut});
+				case 1156:
+					defaultCamZoom = 0.8;
+					FlxTween.tween(dad, {alpha: 1}, 0.6, {ease: FlxEase.quartInOut});
+					FlxTween.tween(administration, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
+				case 1306:
+					FlxTween.tween(administration, {alpha: 0}, 0.6, {ease: FlxEase.quartInOut});
+				case 1336:
+					FlxTween.tween(administration, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
+				case 1344:
+					defaultCamZoom = 1.1;
+				case 1408:
+					defaultCamZoom = 0.75;
+					FlxTween.tween(camHUD, {alpha: 0}, 1, {ease: FlxEase.quartInOut});
+				case 1664:
+					defaultCamZoom = 1;
+					FlxTween.tween(administration, {alpha: 0}, 0.75, {ease: FlxEase.quartInOut});
+				case 1728:
+					FlxTween.tween(dad, {alpha: 0}, 0.6, {ease: FlxEase.quartInOut});
+				case 1808:
+					boyfriend.alpha = 0;
 			}
 		}
 			

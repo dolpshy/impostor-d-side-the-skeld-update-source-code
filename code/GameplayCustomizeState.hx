@@ -6,11 +6,6 @@ import flixel.math.FlxMath;
 import flixel.FlxCamera;
 import flixel.math.FlxPoint;
 import flixel.FlxObject;
-#if windows
-import Discord.DiscordClient;
-import sys.thread.Thread;
-#end
-
 import flixel.group.FlxGroup.FlxTypedGroup;
 import openfl.ui.Keyboard;
 import flixel.FlxSprite;
@@ -18,13 +13,10 @@ import flixel.FlxG;
 
 class GameplayCustomizeState extends MusicBeatState
 {
-
     var defaultX:Float = FlxG.width * 0.55 - 135;
     var defaultY:Float = FlxG.height / 2 - 50;
 
     var background:FlxSprite;
-    var curt:FlxSprite;
-    var front:FlxSprite;
 
     var sick:FlxSprite;
 
@@ -40,16 +32,12 @@ class GameplayCustomizeState extends MusicBeatState
     private var camHUD:FlxCamera;
     
     public override function create() {
-        #if windows
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Customizing Gameplay", null);
-		#end
-
         sick = new FlxSprite().loadGraphic(Paths.image('sick','shared'));
         sick.scrollFactor.set();
-        background = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback','shared'));
-        curt = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains','shared'));
-        front = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront','shared'));
+
+        background = new FlxSprite(-500, -200).loadGraphic(Paths.image('bgs/background/background', 'shared'));
+        background.setGraphicSize(Std.int(background.width * 1.8));
+        background.antialiasing = true;
 
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
@@ -60,19 +48,15 @@ class GameplayCustomizeState extends MusicBeatState
 		camHUD.bgColor.alpha = 0;
         FlxG.cameras.add(camHUD);
 
-        background.scrollFactor.set(0.9,0.9);
-        curt.scrollFactor.set(0.9,0.9);
-        front.scrollFactor.set(0.9,0.9);
+        background.scrollFactor.set(1, 1);
 
         add(background);
-        add(front);
-        add(curt);
 
 		var camFollow = new FlxObject(0, 0, 1, 1);
 
-		dad = new Character(100, 100, 'dad');
+		dad = new Character(-700, -300, 'disie');
 
-        bf = new Boyfriend(770, 450, 'bf');
+        bf = new Boyfriend(200, -140, 'bfdside');
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x + 400, dad.getGraphicMidpoint().y);
 
@@ -150,8 +134,8 @@ class GameplayCustomizeState extends MusicBeatState
 
         if (FlxG.mouse.overlaps(sick) && FlxG.mouse.pressed)
         {
-            sick.x = FlxG.mouse.x - sick.width / 2;
-            sick.y = FlxG.mouse.y - sick.height;
+            sick.x = FlxG.mouse.x + 300;
+            sick.y = FlxG.mouse.y + 200;
         }
 
         for (i in playerStrums)
@@ -188,16 +172,14 @@ class GameplayCustomizeState extends MusicBeatState
     {
         super.beatHit();
 
-        bf.playAnim('idle');
-        dad.dance();
+		if (curBeat % 2 == 0)
+            bf.dance();
+		if (curBeat % 2 == 0)
+            dad.dance();
 
         FlxG.camera.zoom += 0.015;
         camHUD.zoom += 0.010;
-
-        trace('beat');
-
     }
-
 
     // ripped from play state cuz im lazy
     
@@ -246,8 +228,7 @@ class GameplayCustomizeState extends MusicBeatState
                     playerStrums.add(babyArrow);
     
                 babyArrow.animation.play('static');
-                babyArrow.x += 50;
-                babyArrow.x += ((FlxG.width / 2) * player);
+                babyArrow.x += ((FlxG.width / 2) * player) + 97;
     
                 strumLineNotes.add(babyArrow);
             }

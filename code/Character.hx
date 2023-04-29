@@ -192,16 +192,14 @@ class Character extends FlxSprite {
 				animation.addByPrefix('singLEFT', 'left', 24, false);
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
-				animation.addByPrefix('shoot', 'shoot', 24, false);
 
-				setGraphicSize(Std.int(width * 1.5));
+				setGraphicSize(Std.int(width * 2));
 
 				addOffset('idle', -5);
-				addOffset("singUP", -28, 19);
-				addOffset("singRIGHT", -17, -3);
-				addOffset("singLEFT", 117, -17);
-				addOffset("singDOWN", -11, -17);
-				addOffset('shoot', -19, -10);
+				addOffset("singUP", -38, 51);
+				addOffset("singRIGHT", -20, 4);
+				addOffset("singLEFT", 188, 13);
+				addOffset("singDOWN", -13, -13);
 
 				playAnim('idle');
 				
